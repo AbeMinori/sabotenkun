@@ -162,14 +162,7 @@ public class camcontroll3 : MonoBehaviour
         this.rawImage_H.texture = this.camtex_H;
         this.rawImage_grid.texture = this.rawImage_grid.texture;
 
-        ////動画
-        //var videoPlayer = screen.AddComponent<VideoPlayer>();
-        ////動画ソースの設定
-        //videoPlayer.source = VideoSource.VideoClip;
-        //videoPlayer.clip = videoClip;
-
-        //var VideoPlayer = GetComponent<VideoPlayer>();
-        //VideoPlayer.Pause();
+        
 
         //動画再生用
         videoOp = GameObject.Find("op").GetComponent<VideoPlayer>();
@@ -193,8 +186,6 @@ public class camcontroll3 : MonoBehaviour
 
     void Update()
     {
-        //mat = OpenCvSharp.Unity.TextureToMat(this.camtex);
-        //this.rawImage.texture = OpenCvSharp.Unity.MatToTexture(mat);
         KeybordInput();
 
 
@@ -222,17 +213,8 @@ public class camcontroll3 : MonoBehaviour
             bindata_V.FindContours(out contours_V, out hierarchyIndexes_V, RetrievalModes.External,ContourApproximationModes.ApproxSimple);
             bindata_H.FindContours(out contours_H, out hierarchyIndexes_H, RetrievalModes.External, ContourApproximationModes.ApproxSimple);
 
-            //whiteBindata.FindContours(out contours, out hierarchyIndexes, RetrievalModes.External, ContourApproximationModes.ApproxSimple);
-
-            //輪郭を赤枠で囲う
-            //mat.DrawContours(contours, -1, Scalar.Red, 2);
-
-            //小さいの消す
-            //GetComponent<RawImage>().texture = OpenCvSharp.Unity.MatToTexture(mat);
-            //this.rawImage.texture = OpenCvSharp.Unity.MatToTexture(mat);
 
             // 中心の座標を計算する
-
 
             //キー入力、マウスクリック検知
             double maxArea_V = 0;
@@ -516,48 +498,6 @@ public class camcontroll3 : MonoBehaviour
 
 
             //季節毎に座標を取得して移動
-            /*
-            if (countMov == 1)
-            {
-                Vector3 tmp = GameObject.Find("springSabo").transform.position;
-                if (!_SaboPosition_OnceInc)
-                {
-                    GameObject.Find("springSabo").transform.position = new Vector3(tmp.x + SaboMid_H, tmp.y + SaboMid_V, tmp.z);
-                    _SaboPosition_OnceInc = true;
-                }
-            }else if(countMov == 2)
-            {
-                Vector3 tmp = GameObject.Find("summerSabo").transform.position;
-                if (!_SaboPosition_OnceInc)
-                {
-                    GameObject.Find("summerSabo").transform.position = new Vector3(tmp.x + SaboMid_H, tmp.y + SaboMid_V, tmp.z);
-                    _SaboPosition_OnceInc = true;
-                }
-            }else if(countMov == 3)
-            {
-                Vector3 tmp = GameObject.Find("autumnSabo").transform.position;
-                if (!_SaboPosition_OnceInc)
-                {
-                    GameObject.Find("autumnSabo").transform.position = new Vector3(tmp.x + SaboMid_H, tmp.y + SaboMid_V, tmp.z);
-                    _SaboPosition_OnceInc = true;
-                }
-            }else if(countMov == 4)
-            {
-                Vector3 tmp = GameObject.Find("winterSabo").transform.position;
-                if (!_SaboPosition_OnceInc)
-                {
-                    GameObject.Find("winterSabo").transform.position = new Vector3(tmp.x + SaboMid_H, tmp.y + SaboMid_V, tmp.z);
-                    _SaboPosition_OnceInc = true;
-                }
-            }
-            */
-
-
-
-            //mat.DrawContours(contours, -1, Scalar.Red, 2);
-
-
-            //GetComponent<RawImage>().texture = OpenCvSharp.Unity.MatToTexture(mat);
 
             //ビデオ流す部分
 
@@ -592,43 +532,7 @@ public class camcontroll3 : MonoBehaviour
                 snd_data[0] = 0b11011011;
                 serial.Write(snd_data, 0, 1);
             }
-            //*/
         }
-
-        //var areas = 1;
-        //var count = 1;
-
-        //foreach (var contour in contours)
-        //{
-        //    //    //面積を算出
-        //    var area = Cv2.ContourArea(contour);
-        //    Debug.Log(area);
-
-        //    //    if (count < contours.Count())
-        //    //    {
-        //    //        areas = areas + area ;
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        areas = areas + area;
-        //    //    }
-        //    //    count++;
-
-
-        ////動画再生
-        //var VideoPlayer = GetComponent<VideoPlayer>();
-        ////VideoPlayer.Pause();
-        //if (area > 100000000)
-        //{
-        //    VideoPlayer.Play();
-        //}
-        //else
-        //{
-        //    VideoPlayer.Pause();
-        //}
-        //textBox1.Text = areas;
-        //}
-
     }
 
     //データ受信時
